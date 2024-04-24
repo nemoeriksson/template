@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model AuthToken{
+  id          String @id @default(uuid())
+  expires     DateTime
+  userId      String
+  user        User @relation(fields: [userId], references: [id])
+}
+
+model User{
+  id          String @id @default(uuid())
+
+  // Email can be changed to username or similar. 
+  // Remember to change all occurances of creation & updates 
+  // (and the input type to text when loggin in and registering)
+  email       String @unique
+  hash        String
+  salt        String
+  authTokens  AuthToken[]
+}

@@ -1,2 +1,7 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<a href="/login">Login & registration page</a>
+
+<h1>This is the landing page</h1>
+
+<p>Debugging vid installation: </p>
+<li>npm i</li>
+<li>npx prisma db push</li>
