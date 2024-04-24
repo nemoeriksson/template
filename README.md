@@ -2,8 +2,6 @@
 
 <h2 id="chapters">Chapters</h2>
 
-<a href="#chapters" style="position: fixed; bottom: 12px; right: 12px; padding: 4px; transform: translate(-50%, -50%); font-weight: 600;">Back to top</a>
-
 <dl>
     <dt><a href="#resources">1. Resources</a></dt>
     <dt><a href="#startup">2. Startup</a></dt>
@@ -27,6 +25,10 @@
     <dd><a href="#implementation">6.4. Implementation in TypeScript</a></dd>
     <dd><a href="#tsrelation">6.5. Working with relationships</a></dd>
 </dl>
+
+<h2>0. Disclaimer</h2>
+
+Most of this code is written from memory and is not tested. If you get any errors please create a new [github issue](https://github.com/nemoeriksson/template/issues/new). There may also be some spelling/format errors in some places but hopefully it's clear anyways.
 
 <h2 id="resources">1. Resources:</h2> 
 
@@ -195,7 +197,9 @@ SvelteKit adds a lot of attributes that does much javascript for us so we dont h
 <h3 id="bind">4.1. Bind</h3>
 Binding means to store a HTML element inside of a variables so its attributes can be accessed in code. 
 
-Without
+<br>
+
+Without svelte syntax
 ```html
 <script lang="ts">
 let inputElement:HTMLInputElement;
@@ -226,7 +230,7 @@ You can also use a similar syntax when you want to get the value of an attribute
 
 <h3 id="events">4.2. <a href="https://www.w3schools.com/tags/ref_eventattributes.asp">Events</a></h3>
 
-Events are one thing that are used more often than not on interactive websites. Events are something that you'd normally implement with an [eventListner](https://www.w3schools.com/js/js_htmldom_eventlistener.asp) but svelte adds a much easier and better alternative.
+Events are one thing that are used more often than not on interactive websites. Events are something that you'd normally implement with an [eventListener](https://www.w3schools.com/js/js_htmldom_eventlistener.asp) but svelte adds a much easier and better alternative.
 
 Regular *(alternative 1)*
 ```html
@@ -387,7 +391,8 @@ The code continues with returning the value of the cookie or a default string if
 Cookies are useful for storing data such as login tokens, stats for a web-based game or similar. It's important to remember that cookies can be viewed and changed by the client so no sensitive data should ever be stored there. 
 
 <h3 id="forms">5.1. Forms</h3>
-Now we know how to get data from the server to the client, but if we want to do the other way around we'd have to use a [form](https://www.w3schools.com/html/html_forms.asp). This is useful for login/registration pages and similar where we need to get an input from the user. 
+
+Now we know how to get data from the server to the client, but if we want to do the other way around we'd have to use a [form](https://www.w3schools.com/html/html_forms.asp) . This is useful for login/registration pages and similar where we need to get an input from the user. 
 
 A simple form can be made like this:
 ##### +page.svelte
@@ -445,7 +450,11 @@ To `<form action="?/register" method="post" use:enhance>`
 > [Documentation](https://kit.svelte.dev/docs/form-actions) for svelte form actions
 
 <h3 id="updating">5.2. Dynamic and updating values</h3>
-Sometimes you may return a value from the server to the client which can be dynamic and change while the user is on the page. In this case we need a way to automatically update the data which in Svelte can be done with the [$ sign](https://www.itsjzt.com/posts/understanding-svelte-s-dollar-label-syntax). A short example:
+Sometimes you may return a value from the server to the client which can be dynamic and change while the user is on the page. In this case we need a way to automatically update the data which in Svelte can be done with the [$ sign](https://www.itsjzt.com/posts/understanding-svelte-s-dollar-label-syntax). 
+
+<br>
+
+A short example:
 
 ```html
 <script lang="ts">
@@ -716,3 +725,5 @@ if(user){
 Prisma will automatically link these two instances and store the new `Post` in the user's `messages` field.
 
 You can use the terminal command `npx prisma studio` to view your data models and the instances that have been created and linked to get a visual overview. Is hosted on `localhost:5555` by default.
+
+<a href="#chapters" style="position: fixed; bottom: 12px; right: 12px; padding: 4px; transform: translate(-50%, -50%); font-weight: 600;">Back to top</a>
