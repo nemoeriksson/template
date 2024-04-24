@@ -1,0 +1,1 @@
+<h1>This page is only accessible by admins</h1>

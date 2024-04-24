@@ -66,12 +66,12 @@ export const actions: Actions = {
         });
 
         if(!user)
-            return fail(400, {email: 'Email not in use'});
+            return fail(400, {email_login: 'Email not in use'});
 
         const validated = validate(password, user.salt, user.hash);
 
         if(!validated)
-            return fail(400, {password: 'Incorrect password'});
+            return fail(400, {password_login: 'Incorrect password'});
 
         const expirationDate = getExpirationDate()
         const authToken = await prisma.authToken.create({
@@ -97,7 +97,7 @@ export const actions: Actions = {
         });
 
         if(existingUser)
-            return fail(400, {email: 'Email already in use'});
+            return fail(400, {email_reg: 'Email already in use'});
 
         const newUser = await prisma.user.create({
             data: {
