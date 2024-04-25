@@ -73,7 +73,7 @@ To run the website on localhost open the terminal and do this following command.
 npm run dev 
 ```
 
-If you want to host the website so anyone on the same LAN network can connect and view it, you need to modify your `package.json`. Add the following line to the `"scripts"` section: <br>
+If you want to host the website so anyone on the same WiFi can connect and view it you need to modify your `package.json`. Add the following line to the `"scripts"` section: <br>
 `"host": "vite dev --host --port 8080",`. 
 
 It should look something like this:
