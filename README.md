@@ -73,7 +73,7 @@ To run the website on localhost open the terminal and do this following command.
 npm run dev 
 ```
 
-If you want to host the website so anyone on the same WiFi can connect and view it you need to modify your `package.json`. Add the following line to the `"scripts"` section: <br>
+If you want to host the website so anyone on the same LAN network can connect and view it you need to modify your `package.json`. Add the following line to the `"scripts"` section: <br>
 `"host": "vite dev --host --port 8080",`. 
 
 It should look something like this:
@@ -417,7 +417,7 @@ export const load = (async () => {
     return {};
 }) satisfies PageServerLoad;
 
-// Inside here we define all the actions we use. The "default" is not needed and it can be named anything just like a normal function but it's important to remember this named needs to be the same inside the form action attribute.
+// Inside here we define all the actions we use. The "default" is not needed and it can be named anything just like a normal function but it's important to remember that this name needs to be the same inside the form action attribute.
 export const actions: Actions = {
     default: async({request})=>{
         const data = await request.formData();
@@ -432,7 +432,7 @@ export const actions: Actions = {
 This code defines a default action that will be used for a route. It takes one input for a name and then outputs it in the console. Actions can just like the `load` function access and set cookies and database data. To use cookies you'd have to change this line
 `default: async({request})` to `default: async({request, cookies})`. 
 
-When creating a named action you'd have to change the `default`  to whatever you want that, for example `register` making the actions code look like this.
+When creating a named action you'd have to change the `default`  to whatever you want, for example `register`, making the actions code look like this:
 
 ##### +page.server.ts
 ```ts
@@ -450,6 +450,7 @@ To `<form action="?/register" method="post" use:enhance>`
 > [Documentation](https://kit.svelte.dev/docs/form-actions) for svelte form actions
 
 <h3 id="updating">5.2. Dynamic and updating values</h3>
+
 Sometimes you may return a value from the server to the client which can be dynamic and change while the user is on the page. In this case we need a way to automatically update the data which in Svelte can be done with the [$ sign](https://www.itsjzt.com/posts/understanding-svelte-s-dollar-label-syntax). 
 
 <br>
@@ -468,7 +469,7 @@ function handleClick(){
 
 </script>
 
-<button on:click={handleClick}>Click me </button>
+<button on:click={handleClick}>Click me</button>
 <p>Value: {amount}</p>
 <p>Doubled: {doubleAmount}</p>
 ```
@@ -644,7 +645,7 @@ This example stores all the users that have `"Password1234"` as password. When u
 const users = await prisma.user.findMany();
 ```
 
-These are the most important prisma functions and I recommend trying it out with different data models and data types for the different fields to try and learn how it works in different situations, but there is also a `update` function which queries the database for one of many instances and updates the specified fields. Example:
+These are the most important prisma functions and I recommend trying it out with different data models and data types for the different fields to try and learn how it works in different situations, but there is also an `update` function which queries the database for one of many instances and updates the specified fields. Example:
 
 ##### +page.server.ts
 ```ts
@@ -691,7 +692,7 @@ await prisma.user.deleteMany({
     where: {
         password: aVeryCommonPassword
     }
-})
+});
 ```
 
 <h3 id="tsrelation">6.5. Working with relationships</h3>
@@ -711,7 +712,7 @@ const user = await prisma.user.findUnique({
 
 // Checks if the user exists to avoid possible errors
 if(user){
-    
+
     // Create the new post
     await prisma.post.create({
         data: {
