@@ -597,7 +597,7 @@ To create a new `User` we need to use the [`create`](https://www.prisma.io/docs/
 ##### +page.server.ts
 ```ts
 let aUniqueUsername = "Steve";
-let aGoodPassword = "Password1234";
+let aGoodPassword = "correct horse battery staple";
 
 const newUser = await prisma.user.create({
     data: {
